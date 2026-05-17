@@ -62,3 +62,6 @@ CREATE TABLE IF NOT EXISTS submissions (
 CREATE INDEX IF NOT EXISTS idx_submissions_user_id ON submissions(user_id);
 CREATE INDEX IF NOT EXISTS idx_submissions_problem_id ON submissions(problem_id);
 CREATE INDEX IF NOT EXISTS idx_test_cases_problem_id ON test_cases(problem_id);
+ALTER TABLE problems RENAME COLUMN schema_setup_sql TO schema_sql;
+ALTER TABLE problems RENAME COLUMN solution_sql TO expected_output;
+ALTER TABLE problems ADD COLUMN IF NOT EXISTS seed_sql TEXT DEFAULT '';
