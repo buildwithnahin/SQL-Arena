@@ -6,6 +6,7 @@ import {
   updateProblem,
   deleteProblem,
 } from '../controllers/problem.controller';
+import { executeUserQuery } from '../controllers/execute.controller';
 import { protect } from '../middleware/auth.middleware';
 
 const router = Router();
@@ -13,6 +14,9 @@ const router = Router();
 // Public routes
 router.get('/', getProblems);
 router.get('/:id', getProblem);
+
+// Code execution endpoint
+router.post('/:id/execute', protect, executeUserQuery);
 
 // Protected routes (ideally admin only in production)
 router.post('/', protect, createProblem);
