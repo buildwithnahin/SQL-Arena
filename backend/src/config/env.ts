@@ -9,6 +9,8 @@ const env = {
   dbUser: process.env.DB_USER || 'postgres',
   dbPassword: process.env.DB_PASSWORD || 'password',
   dbName: process.env.DB_NAME || 'sql_arena',
+  jwtSecret: process.env.JWT_SECRET || 'supersecret_development_key',
+  jwtExpiresIn: process.env.JWT_EXPIRES_IN || '1d',
 };
 
 export default env;

@@ -5,6 +5,7 @@ import morgan from 'morgan';
 import rateLimit from 'express-rate-limit';
 import { errorHandler } from './middleware/error.middleware';
 import healthRoutes from './routes/health.routes';
+import authRoutes from './routes/auth.routes';
 
 const app: Application = express();
 
@@ -31,6 +32,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Routes
 app.use('/api/health', healthRoutes);
+app.use('/api/auth', authRoutes);
 
 // Error Handling Middleware
 app.use(errorHandler);
