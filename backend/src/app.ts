@@ -6,6 +6,7 @@ import rateLimit from 'express-rate-limit';
 import { errorHandler } from './middleware/error.middleware';
 import healthRoutes from './routes/health.routes';
 import authRoutes from './routes/auth.routes';
+import problemRoutes from './routes/problem.routes';
 
 const app: Application = express();
 
@@ -33,6 +34,7 @@ app.use(express.urlencoded({ extended: true }));
 // Routes
 app.use('/api/health', healthRoutes);
 app.use('/api/auth', authRoutes);
+app.use('/api/problems', problemRoutes);
 
 // Error Handling Middleware
 app.use(errorHandler);
